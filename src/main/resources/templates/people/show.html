@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+
+<b><p th:text="${person.get().getName() + ', ' + person.get().getDate()}">VALUE</p></b>
+
+<hr>
+
+<div th:if="${listOfBook}">
+
+    <b>Книги:</b>
+    <br>
+    <table th:each="book : ${listOfBook}">
+        <span th:style="${book.isExpired()}?'color: red':'color: black'"
+              th:text="${book.getName() +', '+book.getAuthor() +', ' + book.getYear()}"
+        >user</span>
+    </table>
+
+
+</div>
+
+<div th:if="${listOfBook.isEmpty()}">
+
+
+    <p> Человек пока не взял ни одной книги</p>
+
+</div>
+
+<hr>
+
+<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.get().getPerson_id()})}">
+    <input type="submit" value="Редактировать"/></form>
+<br>
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.get().getPerson_id()})}">
+    <input type="submit" value="Удалить"/>
+</form>
+
+</body>
+</html>
+
+
+<!--<span th:text="${book.getName() +', '+book.getAuthor() +', ' + book.getYear()}"-->
+<!--      th:style="${book!=null}?'color: red':'color: black'" >user</span>-->
