@@ -81,7 +81,6 @@ public class BookController {
     public String show(@PathVariable("id") int id, Model model, @ModelAttribute("person") Person person) {
         model.addAttribute("book", bookService.findById(id));
 
-
         Optional<Book> book = bookService.findById(id);
         Person bookOwner = book.get().getPerson();
         if (bookOwner != null) {

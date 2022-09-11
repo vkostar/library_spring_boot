@@ -29,7 +29,6 @@ public class PeopleController {
     public PeopleController(BookService bookService, PeopleService peopleService, PersonValidator personValidator) {
         this.bookService = bookService;
         this.peopleService = peopleService;
-
         this.personValidator = personValidator;
     }
 
