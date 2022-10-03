@@ -37,7 +37,7 @@ public class PeopleService {
     public void deleteById(int id) {
         peopleRepository.deleteById(id);
 Integer id1=null;
-int secn=0;
+int secn=1;
     }
 }
 
